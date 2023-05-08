@@ -44,12 +44,12 @@ const Index = () => {
     //   key: 'value',
     // },
     {
-      title: 'Act as',
+      // title: 'Act as',
       key: 'copy',
       render: (_, record) => (
         <>
         
-        <span style={{ wordBreak: "break-word", maxWidth: "70%", display: "inline-flex" }}>{record.key}:</span><Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
+        <span style={{ wordBreak: "break-word", maxWidth: "70%", display: "inline-flex" }}>Act as {record.key}:</span><Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
         <br/>
         <br/>
         </>
