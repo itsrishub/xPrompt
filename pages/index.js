@@ -33,14 +33,9 @@ const Index = () => {
 
   const columns = [
     {
-      title: 'Act as',
-      dataIndex: 'key',
-      key: 'key'
-    },
-    {
       title: 'Prompt',
-      dataIndex: 'value',
-      key: 'value',
+      dataIndex: 'key value',
+      key: 'key value',
     },
     {
       // title: 'Copy',
