@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Table, Button, Input, ConfigProvider, theme } from 'antd';
-import { copyToClipboard } from 'clipboard';
+// import { copyToClipboard } from 'clipboard';
 
 const Index = () => {
   const [data, setData] = useState({});
@@ -49,7 +49,7 @@ const Index = () => {
       render: (_, record) => (
         <>
         
-        {record.key}:<Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
+        <span style={{ wordBreak: "break-word", maxWidth: "70%", display: "inline-flex" }}>{record.key}:</span><Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
         <br/>
         <br/>
         </>
