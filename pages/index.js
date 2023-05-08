@@ -32,24 +32,29 @@ const Index = () => {
     }));
 
   const columns = [
-    {
-      title: 'Act as',
-      dataIndex: 'key',
-      key: 'key',
-      width: '70%'
-    },
+    // {
+    //   title: 'Act as',
+    //   dataIndex: 'key',
+    //   key: 'key',
+    //   width: '10%'
+    // },
     // {
     //   title: 'Prompt',
     //   dataIndex: 'value',
     //   key: 'value',
     // },
     {
-      // title: 'Copy',
+      title: 'Act as',
       key: 'copy',
       render: (_, record) => (
-        <Button onClick={() => handleCopy(record.value)}>Copy</Button>
+        <>
+        
+        {record.key}:<Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
+        <br/>
+        <br/>
+        </>
       ),
-      width: '30%'
+      width: '90%'
     },
   ];
 
@@ -72,7 +77,7 @@ const Index = () => {
         onChange={(event) => setSearchText(event.target.value)}
         style={{ marginBottom: 16, width: '70%'}}
       />
-      <Table dataSource={dataSource} columns={columns} pagination={true} style={{ width: '90%' }}/>
+      <Table dataSource={dataSource} columns={columns} pagination={true} style={{ width: '85%' }}/>
       <br/>
       <Button onClick={() => setSearchText('')}>Reset</Button>
       <br/>
