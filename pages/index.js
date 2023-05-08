@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Table, Button, Input, ConfigProvider, theme } from 'antd';
-import { copyToClipboard } from 'clipboard';
+// import { copyToClipboard } from 'clipboard';
 
 const Index = () => {
   const [data, setData] = useState({});
@@ -33,10 +33,15 @@ const Index = () => {
 
   const columns = [
     {
-      title: 'Prompt',
-      dataIndex: 'key value',
-      key: 'key value',
+      title: 'Act as',
+      dataIndex: 'key',
+      key: 'key',
     },
+    // {
+    //   title: 'Prompt',
+    //   dataIndex: 'value',
+    //   key: 'value',
+    // },
     {
       // title: 'Copy',
       key: 'copy',
@@ -65,7 +70,7 @@ const Index = () => {
         onChange={(event) => setSearchText(event.target.value)}
         style={{ marginBottom: 16, width: '70%'}}
       />
-      <Table dataSource={dataSource} columns={columns} pagination={true} style={{ width: '70%' }}/>
+      <Table dataSource={dataSource} columns={columns} pagination={true} style={{ width: '90%' }}/>
       <br/>
       <Button onClick={() => setSearchText('')}>Reset</Button>
       <br/>
