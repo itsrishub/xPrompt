@@ -35,8 +35,7 @@ const Index = () => {
     {
       title: 'Act as',
       dataIndex: 'key',
-      key: 'key',
-      width: '20%'
+      key: 'key'
     },
     {
       title: 'Prompt',
