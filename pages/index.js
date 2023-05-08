@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Table, Button, Input, ConfigProvider, theme } from 'antd';
-// import { copyToClipboard } from 'clipboard';
+import { copyToClipboard } from 'clipboard';
 
 const Index = () => {
   const [data, setData] = useState({});
@@ -36,6 +36,7 @@ const Index = () => {
       title: 'Act as',
       dataIndex: 'key',
       key: 'key',
+      width: '70%'
     },
     // {
     //   title: 'Prompt',
@@ -48,6 +49,7 @@ const Index = () => {
       render: (_, record) => (
         <Button onClick={() => handleCopy(record.value)}>Copy</Button>
       ),
+      width: '30%'
     },
   ];
 
