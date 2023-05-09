@@ -16,9 +16,16 @@ const Index = () => {
     loadData();
   }, []);
 
-  const handleCopy = (value) => {
-    navigator.clipboard.writeText(value);
-    alert(`Copied ${value} to clipboard!`);
+  const handleCopy = async (record) => {
+    navigator.clipboard.writeText(record.value);
+    document.getElementById(record.key).style.backgroundColor = 'green';
+    document.getElementById(record.key).style.color = '#fff';
+    document.getElementById(record.key).innerHTML = '✓ Copied';
+    setTimeout(() => {
+      document.getElementById(record.key).style.backgroundColor = '#141414';
+      document.getElementById(record.key).style.color = '';
+      document.getElementById(record.key).innerHTML = 'Copy';
+    }, 5000); 
   };
 
   const dataSource = Object.keys(data)
@@ -44,12 +51,12 @@ const Index = () => {
     //   key: 'value',
     // },
     {
-      // title: 'Act as',
+      title: 'Prompts',
       key: 'copy',
       render: (_, record) => (
         <>
         
-        <span style={{ wordBreak: "break-word", maxWidth: "70%", display: "inline-flex" }}>Act as {record.key}:</span><Button style={{float: "right"}} onClick={() => handleCopy(record.value)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
+        <span style={{ wordBreak: "break-word", maxWidth: "70%", display: "inline-flex" }}>Act as {record.key}:</span><Button id={record.key} style={{float: "right"}} onClick={() => handleCopy(record)}>Copy</Button><br/><br/><hr/><br/><span>{record.value}</span>
         <br/>
         <br/>
         </>
@@ -68,14 +75,23 @@ const Index = () => {
   >
    
     <center>
+    <br/>
+    {/* <span style={{float: "right"}}>
+    {localStorage.getItem('email')? localStorage.getItem('email').replace('@gmail.com', ''):
+    <a href='/auth'>Login/Signup</a>}
+    </span> */}
       <br/>
-    <h1 style={{ fontFamily: "sans-serif"}}>xPrompt</h1>
+        <center>
+    <h1>xPrompt</h1>
+{/* <br/>
+<Button>Programming</Button>&nbsp;<Button>Fitness</Button> */}
+    </center>
     <br/>
       <Input
         placeholder="Search"
         value={searchText}
         onChange={(event) => setSearchText(event.target.value)}
-        style={{ marginBottom: 16, width: '70%'}}
+        style={{ marginBottom: 16, width: '60%'}}
       />
       <Table dataSource={dataSource} columns={columns} pagination={true} style={{ width: '85%' }}/>
       <br/>
