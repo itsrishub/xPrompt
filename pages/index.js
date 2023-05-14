@@ -73,7 +73,7 @@ const Index = () => {
       algorithm: theme.darkAlgorithm,
     }}
   >
-   
+    <title>xPrompt</title>
     <center>
     <br/>
     {/* <span style={{float: "right"}}>
